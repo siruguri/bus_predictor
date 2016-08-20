@@ -1,0 +1,6 @@
+%h1
+  Registrations
+- @registrations.each do |reg|
+  = "#{reg.intersection.name}"
+  .btn.btn-primary.change-reg-status{class: reg.is_on ? 'on' : 'off', "data-state" => reg.is_on ? 'on' : 'off', "data-reg-id" => reg.id}
+    = "#{reg.is_on ? 'on' : 'off'}"
