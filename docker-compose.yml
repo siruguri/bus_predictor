@@ -1,0 +1,32 @@
+version: '2'
+services:
+  app:
+    build: .
+    command: ./entrypoint_webapp.sh
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/myapp
+    depends_on:
+      - mongodb
+      - redis
+
+  sidekiq:
+    build: .
+    environment:
+      REDIS_HOST: redis
+    command: ./entrypoint_sidekiq.sh
+    volumes:
+      - .:/myapp
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    volumes:
+      - ./rundata/redis:/data
+
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - ./rundata/mongodb:/data/db

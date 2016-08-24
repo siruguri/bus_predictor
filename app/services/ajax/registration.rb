@@ -19,7 +19,8 @@ module Ajax
             r.save
 
             if r.is_on
-              ObservationJob.perform_later(r, times: 5)
+              # 2 hours
+              ObservationJob.perform_later(r, times: 120)              
             end
             
             struct[:status] = true

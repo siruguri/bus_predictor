@@ -4,5 +4,9 @@ class Observation
 
   field :observation_id, type: String
   field :observed_at, type: DateTime
-  field :arrival_guesses, type: Array # of {route_id:, arrives_at:, guess_gap:} hashes
+  field :arrives_at, type: DateTime
+
+  field :stop_id, type: Integer
+  field :route_id, type: String
+  field :gap, type: Integer
 end
