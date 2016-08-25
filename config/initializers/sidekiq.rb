@@ -1,4 +1,4 @@
-redis_options_hash = { url: "redis://#{ENV['REDIS_HOST']}:6379/0", namespace: "bus_predictor" }
+redis_options_hash = { url: "redis://#{ENV['REDIS_HOST']}:6379/0", namespace: "bus_predictor_#{Rails.env}" }
 
 Sidekiq.configure_server do |config|
   config.redis = redis_options_hash

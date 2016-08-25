@@ -14,8 +14,7 @@ services:
 
   sidekiq:
     build: .
-    environment:
-      REDIS_HOST: redis
+    env_file: .env
     command: ./entrypoint_sidekiq.sh
     volumes:
       - .:/myapp
