@@ -1,5 +1,5 @@
 %h1
-  Registrations
+  Registrations (env: #{Rails.env})
 - @registrations.each do |reg|
   = "#{reg.intersection.name} : #{reg.stop_ids} : #{reg.route_ids}"
   .btn.btn-primary.change-reg-status{class: reg.is_on ? 'on' : 'off', "data-state" => reg.is_on ? 'on' : 'off', "data-reg-id" => reg.id}

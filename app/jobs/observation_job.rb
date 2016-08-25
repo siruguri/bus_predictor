@@ -11,19 +11,19 @@ class ObservationJob < ActiveJob::Base
           
           reg.route_ids.map do |r_id|
             if arr_list = departures.select { |key, list| key == r_id }.first&.last
-              now = DateTime.now
+              now = Time.now
               now_to_minute_string = now.strftime '%Y-%m-%d:%H-%M'
               now_epoch = now.to_i
               
               arr_list.each do |arrival_gap|
-                o = Observation.new observed_at: (DateTime.new(now.year, now.month, now.day, now.hour, now.minute))
+                o = Observation.new observed_at: (Time.new(now.year, now.month, now.day, now.hour, now.min))
                 
                 gap = arrival_gap.to_i
                 o.route_id = r_id
                 o.stop_id = stop_id
                 
                 a = now + gap.minutes
-                o.arrives_at = DateTime.new a.year, a.month, a.day, a.hour, a.minute
+                o.arrives_at = Time.new a.year, a.month, a.day, a.hour, a.min
                 o.gap = gap
                 o.save
               end

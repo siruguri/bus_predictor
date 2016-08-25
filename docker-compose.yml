@@ -22,7 +22,8 @@ services:
       - redis
 
   redis:
-    image: redis:latest
+    image: redis:alpine
+    command: redis-server --appendonly yes
     volumes:
       - ./rundata/redis:/data
 

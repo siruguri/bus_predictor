@@ -3,8 +3,8 @@ class Observation
   include Mongoid::Extensions::Time
 
   field :observation_id, type: String
-  field :observed_at, type: DateTime
-  field :arrives_at, type: DateTime
+  field :observed_at, type: Time
+  field :arrives_at, type: Time
 
   field :stop_id, type: Integer
   field :route_id, type: String
