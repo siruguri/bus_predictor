@@ -16,13 +16,14 @@ class ObservationJob < ActiveJob::Base
               now_epoch = now.to_i
               
               arr_list.each do |arrival_gap|
-                o = Observation.new observed_at: now
+                o = Observation.new observed_at: (DateTime.new(now.year, now.month, now.day, now.hour, now.minute))
                 
                 gap = arrival_gap.to_i
                 o.route_id = r_id
                 o.stop_id = stop_id
                 
-                o.arrives_at = now + gap.minutes
+                a = now + gap.minutes
+                o.arrives_at = DateTime.new a.year, a.month, a.day, a.hour, a.minute
                 o.gap = gap
                 o.save
               end

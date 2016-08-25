@@ -1,0 +1,6 @@
+%h1
+  Observations
+%ol
+  - @observations.each do |obj|
+    %li
+      = "#{obj.observed_at} : #{obj.route_id} @ #{obj.stop_id} -> #{obj.arrives_at}"
