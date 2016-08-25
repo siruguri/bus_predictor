@@ -32,3 +32,4 @@ services:
     image: mongo:latest
     volumes:
       - ./rundata/mongodb:/data/db
+ 
