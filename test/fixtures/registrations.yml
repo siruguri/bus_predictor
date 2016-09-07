@@ -1,0 +1,8 @@
+reg_1:
+  intersection: int_1
+  stop_ids: [1, 2]
+  route_ids: ['a', 'b']
+reg_2:
+  intersection: int_2
+  stop_ids: [55, 65]
+  route_ids: ['x', 'y']
