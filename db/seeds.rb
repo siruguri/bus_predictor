@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Intersection.count == 0
-  i = Intersection.new name: 'Chatham and Park', stop_ids: [58500, 57277], route_ids: ['NL', '18']
+  i = Intersection.new name: 'Chatham and Park'
   i.save
 end
 home = Intersection.find_by(name: 'Chatham and Park')

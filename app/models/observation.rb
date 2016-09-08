@@ -19,6 +19,7 @@ class Observation
   field :gap, type: Integer
 
   after_initialize :set_hour_minute
+  before_save :set_hour_minute
 
   private
   def set_hour_minute
