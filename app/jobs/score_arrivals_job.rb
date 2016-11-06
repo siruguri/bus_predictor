@@ -2,7 +2,7 @@ class ScoreArrivalsJob < ActiveJob::Base
   def perform(route_id)
     # For a given set of hours (UTC 1500, to EOD, to UTC 0500)
     scores = {}
-    ((15..23).to_a + (0..5).to_a).each do |hr|
+    ((15..23).to_a + (0..7).to_a).each do |hr|
       scores[hr] = {}
       # Find all unique arrives_at minutes in that hr
       obs = Observation.where({arrives_at_hour: hr}.merge(route_id.nil? ? {} : {route_id: route_id}))
