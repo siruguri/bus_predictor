@@ -12,18 +12,11 @@ services:
       - mongodb
       - redis
 
-  sidekiq:
-    build: .
-    env_file: .env
-    command: ./entrypoint_sidekiq.sh
-    volumes:
-      - .:/myapp
-    depends_on:
-      - redis
-
   redis:
     image: redis:alpine
-    command: redis-server --appendonly yes
+    command: redis-server --requirepass thisisverysecureok
+    ports:
+      - 6379:6379
     volumes:
       - ./rundata/redis:/data
 
